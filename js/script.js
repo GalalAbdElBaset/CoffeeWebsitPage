@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
   const loader = document.getElementById("coffee-loader");
   setTimeout(() => {
     loader.classList.add("fade-out");
-  }, 5000);
+  }, 3700);
 });
       
 
