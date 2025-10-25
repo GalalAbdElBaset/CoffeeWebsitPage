@@ -199,7 +199,7 @@ ul li {
     transform: scale(1);
   }
 }
-
+/* 
 .loader {
   position: fixed;
   top: 0;
@@ -256,8 +256,114 @@ ul li {
   100% {
     transform: translateX(-50%) translateY(0);
   }
-}
+} */
 /* Start index-page */
+:root {
+  --bg-dark: #0e0704;
+  --text-gold: #b68c52;
+  --text-glow: #e0b97f;
+}
+
+.coffee-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.letters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--text-gold);
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* تأثير اللمعة */
+.letters::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* حركة الحروف */
+.letters span {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.5s forwards ease-out;
+}
+
+.letters span:nth-child(1) { animation-delay: 0.2s; }
+.letters span:nth-child(2) { animation-delay: 0.4s; }
+.letters span:nth-child(3) { animation-delay: 0.6s; }
+.letters span:nth-child(4) { animation-delay: 0.8s; }
+.letters span:nth-child(5) { animation-delay: 1s; }
+.letters span:nth-child(6) { animation-delay: 1.2s; }
+.letters span:nth-child(7) { animation-delay: 1.4s; }
+.letters span:nth-child(8) { animation-delay: 1.6s; }
+.letters span:nth-child(9) { animation-delay: 1.8s; }
+.letters span:nth-child(10) { animation-delay: 2s; }
+.letters span:nth-child(11) { animation-delay: 2.2s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* النص السفلي */
+.wait-text {
+  margin-top: 20px;
+  font-size: 18px;
+  color: var(--text-glow);
+  opacity: 0.8;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* عند الإخفاء */
+.coffee-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
 /* ================= Start Index Page ================= */
 

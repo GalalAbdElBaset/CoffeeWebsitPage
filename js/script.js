@@ -1,15 +1,9 @@
-// "use strict";
-// ====== USerName btn update ======
-
 "use strict";
 
-// ====== التحقق من تسجيل الدخول ======
 const loggedInUser = JSON.parse(localStorage.getItem("currentUser"));
 const currentPage = window.location.pathname.split("/").pop();
 
-// ====== حماية الصفحات ======
 if (!loggedInUser && currentPage !== "sign-in.html" && currentPage !== "sign-up.html") {
-  // إنشاء popup التحذير
   const popup = document.createElement("div");
   popup.className = "popup-protect";
   popup.innerHTML = `
@@ -21,23 +15,23 @@ if (!loggedInUser && currentPage !== "sign-in.html" && currentPage !== "sign-up.
   `;
   document.body.appendChild(popup);
 
-  // تعطيل التفاعل مع الصفحة
+
   document.body.style.overflow = "hidden";
 
-  // تحويل المستخدم عند الضغط على الزر
+
   document.querySelector("#go-login").addEventListener("click", () => {
     window.location.href = "sign-in.html";
   });
 }
 
-// ====== عناصر النافبار ======
+
 const usernameOutNavBar = document.querySelector(".sign-in");
 const signUpNavBar = document.querySelector(".sign-up");
 const slashNavBar = document.querySelector("#slash");
 const usernameDisplayNav = document.querySelector("#username-display");
 const logoutBtn = document.querySelector("#logout-btn");
 
-// ====== التحكم في عرض الأزرار ======
+
 if (loggedInUser) {
   if (usernameOutNavBar) usernameOutNavBar.style.display = "none";
   if (signUpNavBar) signUpNavBar.style.display = "none";
@@ -53,7 +47,7 @@ if (loggedInUser) {
   if (logoutBtn) logoutBtn.style.display = "none";
 }
 
-// ====== تسجيل الخروج ======
+
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("currentUser");
@@ -62,7 +56,7 @@ if (logoutBtn) {
   });
 }
 
-/////// Protect the site from Unregistered visitors
+
 
 
 // Navbar Mobile
