@@ -178,14 +178,13 @@
     <script src="js/login.js"></script>
     <script src="https://kit.fontawesome.com/c057664144.js" crossorigin="anonymous"></script>
     <script>
-      // / loader window/ 
       window.addEventListener("load", () => {
-        const loader = document.querySelector(".loader");
+        const loader = document.getElementById("coffee-loader");
         setTimeout(() => {
-          loader.style.opacity = "0";
-          loader.style.visibility = "hidden";
-        }, 1200);
+          loader.classList.add("fade-out");
+        }, 5000);
       });
+          
     </script>
   </body>
 </html>
